@@ -1,5 +1,5 @@
 ### Napredno Web programiranje 
-## Laboratorijske vježbe – vježba 5
+## Laboratorijske vježbe – vježba 7
 
 ### Zadatak 1
 #### Prijava u sustav auth/signin
