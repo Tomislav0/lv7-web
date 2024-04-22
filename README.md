@@ -2,6 +2,14 @@
 ## Laboratorijske vježbe – vježba 5
 
 ### Zadatak 1
+#### Prijava u sustav auth/signin
+![image](https://github.com/Tomislav0/lv7-web/assets/72692790/622213de-686b-450f-8b35-55a2ad942d26)
+
+
+#### Registriranje u sustav auth/signup
+![image](https://github.com/Tomislav0/lv7-web/assets/72692790/58c93bc6-622d-40ec-9b2a-3319ac2333e3)
+
+
 #### Prikaz svih zadataka
 ![image](https://github.com/Tomislav0/lv6-web/assets/72692790/9cf2988d-7eb2-4827-b819-382941f92d39)
 
