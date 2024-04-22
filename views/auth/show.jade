@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    h1.
+        Project Info #{project._id}
+    p Name: #{project.name}
+    p Description: #{project.description}
+    p Start date: #{startDate}
+    p Finish date: #{finishDate}
+    p Is Done: #{project.isDone}
+    p Contributors:
+    each user in project.users
+        p #{user}

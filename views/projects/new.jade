@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    h1 #{title}
+
+    form#formAddProject(name="addproject", method="post", action="/projects")
+        p Name:
+            input#inputName(type="text", placeholder="Project name", name="name")
+        p Description:
+            input#inputDescription(type="text", placeholder="Project description", name="description")
+        p Price:
+            input#inputPrice(type="number", name="price")
+        p Start date:
+            input#inputStartDate(type="date", name="startDate")
+        p Finish date:
+            input#inputFinishDate(type="date", name="finishDate")
+
+        // Container for dynamic user inputs
+        div#userInputs
+            // Existing user input (User 1)
+            p
+                input(type="text", placeholder="User 1", name="users[]")
+                button(type="button", class="removeUserBtn", onclick="removeUserInput(this)") Remove
+
+        // Button to add new user input
+        button(type="button", id="addUserBtn") Add User
+
+        p
+            button#btnSubmit(type="submit") Submit
+
+    script.
+        var userCount = 1;
+
+        // Function to add a new user input field
+        function addUserInput() {
+            userCount++;
+            var newUserInput = document.createElement('p');
+            newUserInput.innerHTML = `<input type="text" placeholder="User ${userCount}" name="users[]"> <button type="button" class="removeUserBtn" onclick="removeUserInput(this)">Remove</button>`;
+            document.getElementById('userInputs').appendChild(newUserInput);
+        }
+
+        // Function to remove a user input field
+        function removeUserInput(button) {
+            button.parentNode.remove();
+        }
+
+        // Event listener for "Add User" button
+        document.getElementById('addUserBtn').addEventListener('click', addUserInput);

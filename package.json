@@ -1,0 +1,23 @@
+{
+  "name": "lv6-web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "debug": "*",
+    "express": "*",
+    "jade": "*",
+    "jsonwebtoken": "^9.0.2",
+    "loader": "^2.1.1",
+    "method-override": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "nodemon": "^3.1.0",
+    "serve-favicon": "*"
+  }
+}

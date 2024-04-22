@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+	h1.
+		Project ID #{project._id}
+	form(action='/projects/#{project._id}/edit',method='post',name='updateproject',enctype='application/x-www-form-urlencoded')
+		p Name: 
+			input#inputName(type="text", value='#{project.name}',placeholder="Project name", name="name")
+		p Description:
+			input#inputDescription(type="string", value='#{project.description}',placeholder="Project description", name="description")
+		p Price: 
+			input#inputPrice(type="number", value='#{project.price}', name="price")
+		p Start date: 
+			input#inputStartDate(type="date", value='#{startDate}', name="startDate")
+		p Finish date: 
+			input#inputFinishDate(type="date", value='#{finishDate}', name="finishDate")
+		p Is done: 
+			input#inputIsDone(type='checkbox', name='isDone', checked=('#{project.isDone}'==='true' ? "checked" : undefined))
+		p
+			input(type='hidden',value='PUT',name='_method')
+		div#userInputs
+		each user in project.users
+			p
+					input(type="text", placeholder="User 1", value='#{user}' name="users[]")
+					button(type="button", class="removeUserBtn", onclick="removeUserInput(this)") Remove
+		// Button to add new user input
+        
+		button(type="button", id="addUserBtn") Add User
+        
+		p
+			button#btnSubmit(type='submit').
+				Update
+
+		script.
+			// Function to add a new user input field
+			function addUserInput() {
+				var newUserInput = document.createElement('p');
+				newUserInput.innerHTML = `<input type="text" placeholder="New user" name="users[]"> <button type="button" class="removeUserBtn" onclick="removeUserInput(this)">Remove</button>`;
+				document.getElementById('userInputs').appendChild(newUserInput);
+			}
+
+			// Function to remove a user input field
+			function removeUserInput(button) {
+				button.parentNode.remove();
+			}
+
+			// Event listener for "Add User" button
+			document.getElementById('addUserBtn').addEventListener('click', addUserInput);

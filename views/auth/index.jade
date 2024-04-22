@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    h1 #{title}                 
+    
+    button(type='button', onclick='navigateToAdd()') Add project
+
+    script.
+      function navigateToAdd() {
+        window.location.href = '/projects/new';
+      }
+
+    table
+        thead
+            tr
+                th Project Name
+                th Description
+                th Price
+                th Status
+                th Start Date
+                th Actions
+
+        tbody
+            each project in projects
+                tr
+                    td #{project.name}
+                    td #{project.description}
+                    td #{project.price}
+                    td #{project.isDone ? 'Done' : 'Not Done'}
+                    td #{new Date(project.startDate).toLocaleDateString()}
+
+                    td
+                        form(action='/projects/#{project._id}/edit', method='post', enctype='application/x-www-form-urlencoded')
+                            a(href='/projects/#{project._id}') Show
+                            | &nbsp;
+                            a(href='/projects/#{project._id}/edit') Edit
+                            | &nbsp;
+                            input(type='hidden', value='DELETE', name='_method')
+                            button(type='submit') Delete
